@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+## Projekt Programowanie objektowe
+Autor: Jakub Kurek
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Projekt składa się z aplikacji Spring Boot, która jako GUI serwuje aplikację napisaną w React.js, SCSS i Typescript. Cała obsługa baz danych i REST jest napisana w Javie. Całość opiera się na modelu projektowym MVC.
 
-## Available Scripts
+Sama aplikacja umożliwia wysyłanie wiadomości w czasie rzeczywistym do wielu chatów grupowych. Pokoje można tworzyć i do nich dołączać, a także każdy pokój zawiera statystyki użytkowników dla danego pokoju.
 
-In the project directory, you can run:
+## Struktura katalogów
+Struktura katalogów to domyśly układ Javy. Dodatkowo w głównym folderze znajdują się katalogi:
 
-### `yarn start`
+ - docs - dokumentacja Javadoc
+ - frontend - aplikacja Reactowa
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Serwowanie aplikacji webowej
+Po dokonanu jakiej kolwiek zmiany w aplikacji Reactowej należy ją od nowa zbudowąć poprzed polecenie `yarn build` i zawartość katalogu `/frontend/build` przekopiować do katalogu `/target/classes/public`. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Oczywiście można użyć do tego pluginu. W projekcie po wywołaniu `mvn install` katalog `build` sam się przekopiuje do `target`
 
-### `yarn test`
+## Dostęp do aplikacji
+Aplikacja nie posiada, żadnej autoryzacji. Aby odzyskać zmiany po np. odświeżeniu przeglądarki, należy podać po prostu wcześniej używany login użytkownika. Jeżeli użytkownik poda login, którego nie ma w bazie, to użytkownik o takim loginie automatycznie zostanie utworzony.
+#### Login jest Case Sensitive
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+## API
+API jest RESTowe.
+**Całe api dostępne jest pod prefixem `/api`**
+Dostępne endpointy:
+| Path | Method |Opis|
+|--|--|--|
+| /messages| `GET`|List wszystkich wiadomości|
+| /messages/`:id` | `GET` |Pobranie pojedynczej wiadomości|
+| /users` | `GET` |Lista wszystkich użytkowników|
+| /users/`:id` | `GET` |Pobranie pojedynczego użytkownika|
+| /users| `POST` |Utworzenie użytkownika lub jego pobranie jeżeli już taki istnieje|
+| /login | `POST`|Alias. Wewnętrzne wywołuje handler z `/users POST`|
+|/topics | `GET`|  List wszystkich pokoi |
+|/topics | `POST`|  Utworzenie nowego pokoju |
+| /topics/`:id` | `GET`|Pobranie pojedynczego pokoju|
+| /topics/`:id`/messages| `GET`|Pobranie wszystkich wiadomości z danego pokoju|
+| /topics/`:id`/users| `GET`|Pobranie członków danego pokoju|
+| /topics/`:id`/users| `POST`| Dodanie istniejącego użytkownika do pokoju|
+| /topics/`:id`/users/`:userId`| `POST`| Wysłanie wiadomości przez użytkownika w danym pokoju|
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Baza danych
+W projekcie wykorzystana jest baza plikowa SQLite. Jeżeli plik bazy nie istnieje to zostaje on automatycznie stworzony. 
+Przykładowa baza danych znajduje się w `/sqlite.db`.
+Do przeglądu bazy danych polecema program https://sqlitebrowser.org/
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Uruchomienie
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Uruchomienie lokalne**
+Minimalne wymagania: `JAVA JDK 11` (na takiej uruchamiałem plik `.jar`)
+ 1. Pobrać repozytorium i przejść do katalogu głownego
+ 2. Uruchomienie pliku jar komendą `java -jar .\target\app-0.0.1-SNAPSHOT.jar` - jak widać plik `.jar` znajduje się w folderze `target`
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
