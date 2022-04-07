@@ -45,6 +45,7 @@ Dostępne endpointy:
 | /topics/`:id`/users| `GET`|Pobranie członków danego pokoju|
 | /topics/`:id`/users| `POST`| Dodanie istniejącego użytkownika do pokoju|
 | /topics/`:id`/users/`:userId`| `POST`| Wysłanie wiadomości przez użytkownika w danym pokoju|
+| /websocket| `-`| Websocket do komunikacji live|
 
 ## Baza danych
 W projekcie wykorzystana jest baza plikowa SQLite. Jeżeli plik bazy nie istnieje to zostaje on automatycznie stworzony. 
