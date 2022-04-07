@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="maven-antrun-" default="main">
+  <target name="main">
+    <copy todir="F:\studia\xamp\htdocs\po\backend\app\target/classes/public">
+      <fileset dir="F:\studia\xamp\htdocs\po\backend\app/frontend/build" />
+    </copy>
+  </target>
+</project>
