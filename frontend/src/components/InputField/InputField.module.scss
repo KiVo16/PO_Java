@@ -1,0 +1,143 @@
+.wrapper {
+    position: relative;
+
+    &__main {
+        min-height: 5.6rem;
+        padding: 0 2rem;
+        position: relative;
+
+        // overflow-y: auto;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        border-radius: var(--input-border-radius);
+
+        border: var(--input-border-width) solid var(--input-border-color);
+        background-color: white;
+
+        &__input {
+            width: auto;
+            height: 5rem;
+            flex-grow: 1;
+            position: relative;
+
+            font-family: var(--input-font-family);
+            color: var(--input-color-text);
+            font-weight: var(--input-font-weight-text);
+            font-size: var(--input-font-size-text);
+
+            /*   &:-webkit-autofill {
+                // Expose a hook for JavaScript when auto fill is shown.
+                // JavaScript can capture 'animationstart' events
+                animation-name: onAutoFillStart;
+            
+                // Make the backgound color become yellow _really slowly_
+                transition: background-color 50000s ease-in-out 0s;
+              }
+            
+              &:not(:-webkit-autofill) {
+                // Expose a hook for JS onAutoFillCancel
+                // JavaScript can capture 'animationstart' events
+                animation-name: onAutoFillCancel;
+              }
+        */
+        }
+
+        &::-webkit-scrollbar {
+            width: 0.5rem;
+            height: 0.5rem;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: 6px;
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+
+    & &__error {
+        color: var(--input-color-error);
+        font-weight: var(--input-font-weight-error);
+        font-size: var(--input-font-size-error);
+        font-family: var(--input-font-family);
+        padding-left: 2rem;
+        margin-top: 0.5rem;
+    }
+}
+
+.input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding-top: 1rem;
+
+    font-family: var(--input-font-family);
+    color: var(--input-color-text);
+    font-weight: var(--input-font-weight-text);
+    font-size: var(--input-font-size-text);
+
+    &.hidden_label {
+        padding-top: 0;
+    }
+
+    &:not(:placeholder-shown) + .label {
+        top: var(--input-top-label--focused);
+        font-size: var(--input-font-size-label--focused);
+        font-weight: var(--input-font-weight-label--focused);
+        color: var(--input-color-label--focused);
+
+        transform: translateY(0);
+    }
+
+    &:focus + .label {
+        top: var(--input-top-label--focused);
+        font-size: var(--input-font-size-label--focused);
+        font-weight: var(--input-font-weight-label--focused);
+        color: var(--input-color-label--focused);
+
+        transform: translateY(0);
+    }
+
+    &::placeholder {
+        visibility: hidden;
+    }
+}
+
+.label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    transition: all 0.2s;
+
+    font-family: var(--input-font-family);
+    color: var(--input-color-label);
+    font-weight: var(--input-font-weight-label);
+    font-size: var(--input-font-size-label);
+
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+@keyframes onAutoFillStart {
+    from {
+        /**/
+    }
+    to {
+        /**/
+    }
+}
+
+@keyframes onAutoFillCancel {
+    from {
+        /**/
+    }
+    to {
+        /**/
+    }
+}

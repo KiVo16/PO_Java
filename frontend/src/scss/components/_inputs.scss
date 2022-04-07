@@ -1,0 +1,34 @@
+:root {
+    --input-color-error: red;
+    --input-color-text: #20252e;
+    --input-color-label: #767f8a;
+    --input-color-label--focused: #767f8a;
+
+    --input-font-family: var(--font-primary);
+
+    --input-font-size-text: 1.6rem;
+    --input-font-size-error: 1.1rem;
+    --input-font-size-label: 1.6rem;
+    --input-font-size-label--focused: 1.2rem;
+    --input-top-label--focused: 0.5rem;
+
+    --input-font-weight-text: 400;
+    --input-font-weight-error: 600;
+    --input-font-weight-label: 400;
+    --input-font-weight-label--focused: 600;
+
+    --input-border-radius: 14px;
+
+    --input-border-color: #e6e6e6;
+    --input-border-width: 1px;
+
+    --input-dropdown-default-item-font-size: 1.6rem;
+    --input-dropdown-default-item-font-weight: 400;
+    --input-dropdown-default-item-color: #20252e;
+
+    --input-tag-background-color: grey;
+    --input-tag-border-radius: 14px;
+    --input-tag-color: #20252e;
+    --input-tag-font-weight: 400;
+    --input-tag-font-size: 1.6rem;
+}

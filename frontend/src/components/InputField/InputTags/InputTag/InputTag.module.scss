@@ -1,0 +1,15 @@
+.tag {
+    height: 3.5rem;
+    padding: 0 2rem;
+    border-radius: var(--input-tag-border-radius);
+    background-color: var(--input-tag-background-color);
+    font-family: var(--input-font-family);
+    font-weight: var(--input-tag-font-weight);
+    font-size: var(--input-tag-font-size);
+    color: var(--input-tag-color);
+    white-space: nowrap;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,32 @@
+.member {
+    width: 100%;
+    padding: 1.2rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    transition: .2s all;
+    border-radius: 16px;
+    cursor: pointer;
+
+    &.active {
+        background-color: var(--color-grey-light-2);
+    }
+    
+    &__header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__icon {
+            width: 1.6rem;
+            height: 1.6rem;
+            fill: var(--color-black);
+
+            &.active {
+                transform: rotateZ(180deg);
+            }
+        }
+    }
+}

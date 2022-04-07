@@ -1,0 +1,22 @@
+.login {
+    display: flex;
+    justify-content: center;
+
+    &__form {
+        display: flex;
+        flex-direction: flex;
+        align-items: center;
+
+        width: 50rem;
+
+        &__input {
+            flex: 1;
+            margin-right: 2rem;
+        }
+
+        & &__button {
+            height: 5.6rem;
+            width: 5.6rem;
+        }
+    }
+}

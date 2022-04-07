@@ -1,0 +1,23 @@
+.members {
+    height: 100%;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 7rem 1fr;
+    min-height: 0;
+    border-left: solid 2px rgba(0, 0, 0, 0.1);
+
+
+    &__title {
+        align-self: center;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+
+        & > *:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+}

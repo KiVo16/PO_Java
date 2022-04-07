@@ -1,0 +1,6 @@
+com.example.app
+com.example.app.Controllers
+com.example.app.Entities
+com.example.app.Helpers
+com.example.app.Repositories
+com.example.app.Websockets
